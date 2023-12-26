@@ -1,4 +1,4 @@
-const baseUrl = `http://ec2-3-121-234-38.eu-central-1.compute.amazonaws.com:8000/token`;
+const baseUrl = `http://ec2-3-121-234-38.eu-central-1.compute.amazonaws.com:8000/users/token`;
 
 export const logIn = async (data) => {
 

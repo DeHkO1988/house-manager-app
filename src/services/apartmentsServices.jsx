@@ -1,10 +1,16 @@
 const baseUrl = `http://ec2-3-121-234-38.eu-central-1.compute.amazonaws.com:8000/apartments`;
 
-export const getAll = async () => {
+export const getAll = async (token) => {
 
     try {
 
-        const allApartments = await fetch(baseUrl);
+        const header = `Bearer ${token}`;
+
+        const allApartments = await fetch(baseUrl, {
+            headers: {
+                'Authorization': header,
+            }
+        });
 
         const result = await allApartments.json();
 

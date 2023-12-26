@@ -14,14 +14,16 @@ function App() {
 
   return (
     <>
+
       <UserProvider>
         <Navigation />
         <Routes>
-          <Route path='/' element={<Catalog />} />
+          <Route path='/' element={<LogIn />} />
           <Route path='/create' element={<Create />} />
           <Route path='/details/:apartmentNumber' element={<Details />} />
           <Route path='/login' element={<LogIn />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/catalog' element={<Catalog />} />
         </Routes>
       </UserProvider>
 

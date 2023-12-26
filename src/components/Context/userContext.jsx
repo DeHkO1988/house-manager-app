@@ -21,7 +21,7 @@ export const UserProvider = ({
 
             setUser(accessToken);
 
-            navigate('/');
+            navigate('/catalog');
 
         } catch (error) {
             alert(error);
@@ -31,6 +31,7 @@ export const UserProvider = ({
 
     const logOutHandler = () => {
         setUser(null);
+        navigate('/');
     }
 
     const contextValues = {

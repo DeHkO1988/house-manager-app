@@ -12,7 +12,7 @@ export const Catalog = () => {
     const [allApart, setApart] = useState([]);
 
     useEffect(() => {
-        apartmentServices.getAll()
+        apartmentServices.getAll(user)
             .then(result => setApart(result))
     }, []);
 
