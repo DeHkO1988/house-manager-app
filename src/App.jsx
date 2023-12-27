@@ -8,6 +8,7 @@ import { Create } from './components/Create/Create';
 import { UserProvider } from "./components/Context/userContext"
 import { Profile } from './components/Profile/Profile';
 import { RouteGuard } from './components/RouteGuard/RouteGuard';
+import { NotFound } from './components/NotFound/NotFound';
 
 
 function App() {
@@ -47,8 +48,12 @@ function App() {
             </RouteGuard>
           } />
 
+          <Route path='*' element={<NotFound />} />
+
         </Routes>
       </UserProvider>
+
+
 
     </>
   )
