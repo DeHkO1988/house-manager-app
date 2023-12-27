@@ -26,10 +26,16 @@ export const getAll = async (token) => {
 
 };
 
-export const getOne = async (apartmentNumber) => {
+export const getOne = async (apartmentNumber, token) => {
+
+    const header = `Bearer ${token}`;
 
     try {
-        const apartment = await fetch(`${baseUrl}/${apartmentNumber}`);
+        const apartment = await fetch(`${baseUrl}/${apartmentNumber}`, {
+            headers: {
+                'Authorization': header,
+            }
+        });
 
         const result = await apartment.json();
 
@@ -44,12 +50,17 @@ export const getOne = async (apartmentNumber) => {
 
 };
 
-export const deleteApartment = async (apartmentNumber) => {
+export const deleteApartment = async (apartmentNumber, token) => {
+
+    const header = `Bearer ${token}`;
 
     try {
 
         await fetch(`${baseUrl}/${apartmentNumber}`, {
             method: 'DELETE',
+            headers: {
+                'Authorization': header,
+            }
         });
 
     } catch (error) {
@@ -61,22 +72,25 @@ export const deleteApartment = async (apartmentNumber) => {
 
 };
 
-export const create = async (data) => {
-  
-        const result = await fetch(baseUrl, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        });
+export const create = async (data, token) => {
 
-        if (!result.ok) {
+    const header = `Bearer ${token}`;
 
-            throw ('invalid input');
+    const result = await fetch(baseUrl, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': header,
+        },
+        body: JSON.stringify(data)
+    });
 
-        };
+    if (!result.ok) {
 
-        alert(`Apartment ${data.number} has been successfully created`);
+        throw ('invalid input');
+
+    };
+
+    alert(`Apartment ${data.number} has been successfully created`);
 
 };

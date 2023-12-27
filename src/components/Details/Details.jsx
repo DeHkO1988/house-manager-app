@@ -1,16 +1,18 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import style from "../Details/Details.module.css";
-import * as apartmentServices from "../../services/apartmentsServices"
+import * as apartmentServices from "../../services/apartmentsServices";
+import { UserContext } from "../Context/userContext"
 
 export const Details = () => {
     const [apartment, setApartment] = useState({})
 
     const { apartmentNumber } = useParams();
+    const { user } = useContext(UserContext);
 
     useEffect(() => {
-        apartmentServices.getOne(apartmentNumber)
+        apartmentServices.getOne(apartmentNumber, user)
             .then(result => setApartment(result))
     }, [apartmentNumber]);
 

@@ -18,7 +18,7 @@ export const Catalog = () => {
 
     const deleteApartmentHandler = async (apartNumber) => {
 
-        await apartmentServices.deleteApartment(apartNumber);
+        await apartmentServices.deleteApartment(apartNumber, user);
 
         const newApartmentArray = allApart.filter(x => x.number !== apartNumber);
 
