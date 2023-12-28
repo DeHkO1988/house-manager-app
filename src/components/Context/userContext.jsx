@@ -46,7 +46,7 @@ export const UserProvider = ({
         logOutHandler,
         errorCleaner,
         user: user,
-        err: loginErr,
+        error: loginErr,
     }
 
     return (

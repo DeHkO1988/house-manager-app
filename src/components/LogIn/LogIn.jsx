@@ -12,7 +12,7 @@ export const LogIn = () => {
         password: '',
     });
 
-    const { logInHandler, err, errorCleaner } = useContext(UserContext);
+    const { logInHandler, error, errorCleaner } = useContext(UserContext);
 
     useEffect(() => {
         return () => {
@@ -33,9 +33,9 @@ export const LogIn = () => {
 
     return (
         <div className={style.loginContainer}>
-            {err &&
+            {error.err &&
                 <div className="alert alert-warning text-center" role="alert">
-                    {err.err}
+                    {error.err}
                 </div>
             }
 
