@@ -11,6 +11,7 @@ export const UserProvider = ({
 }) => {
 
     const [user, setUser] = useState(null);
+    const [loginErr, setLoginErr] = useState({});
     const navigate = useNavigate();
 
     const logInHandler = async (e, user) => {
@@ -24,7 +25,9 @@ export const UserProvider = ({
             navigate('/catalog');
 
         } catch (error) {
-            alert(error);
+
+            setLoginErr({err: error})
+            //alert(error);
         }
 
     };
@@ -32,12 +35,18 @@ export const UserProvider = ({
     const logOutHandler = () => {
         setUser(null);
         navigate('/');
-    }
+    };
+
+    const errorCleaner = () => {
+        setLoginErr({});
+    };
 
     const contextValues = {
         logInHandler,
         logOutHandler,
+        errorCleaner,
         user: user,
+        err: loginErr,
     }
 
     return (

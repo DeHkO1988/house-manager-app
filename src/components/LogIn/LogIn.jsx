@@ -1,5 +1,5 @@
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import style from "../LogIn/LogIn.module.css";
 import { UserContext } from "../Context/userContext";
@@ -12,7 +12,14 @@ export const LogIn = () => {
         password: '',
     });
 
-    const { logInHandler } = useContext(UserContext);
+    const { logInHandler, err, errorCleaner } = useContext(UserContext);
+
+    useEffect(() => {
+        return () => {
+            errorCleaner()
+        }
+    }, []);
+
 
 
     const loginInformation = (e) => {
@@ -26,6 +33,12 @@ export const LogIn = () => {
 
     return (
         <div className={style.loginContainer}>
+            {err &&
+                <div className="alert alert-warning text-center" role="alert">
+                    {err.err}
+                </div>
+            }
+
             <form onSubmit={onSubmit}>
                 <div className="mb-3">
                     <label htmlFor="username" className="form-label">Username</label>

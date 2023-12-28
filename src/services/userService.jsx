@@ -16,7 +16,7 @@ export const logIn = async (data) => {
     const result = await token.json()
 
     if (!token.ok) {
-        throw ('error');
+        throw ('Incorrect username or password!');
     }
 
     return result.access_token;
