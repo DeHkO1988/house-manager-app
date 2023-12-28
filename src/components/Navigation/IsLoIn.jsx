@@ -16,6 +16,9 @@ export const IsLogIn = ({
                 <Link className="nav-link" to="/profile">Profile</Link>
             </li>
             <li className="nav-item">
+                <Link className="nav-link" to="/users">Users</Link>
+            </li>
+            <li className="nav-item">
                 <button className="nav-link" href="" onClick={logOutHandler}>Log Out</button>
             </li>
 

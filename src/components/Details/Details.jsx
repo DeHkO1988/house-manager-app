@@ -36,7 +36,7 @@ export const Details = () => {
 
                         <div className={style.buttonPosition}>
                             <p className="d-inline-flex gap-1">
-                                <a href="#" className="btn btn-primary" role="button" data-bs-toggle="button">Edit</a>
+                                <Link to={`/edit/${apartmentNumber}`} className="btn btn-primary" role="button" data-bs-toggle="button">Edit</Link>
                                 <Link to={'/catalog'} className="btn btn-primary" >Back</Link>
                             </p>
                         </div>

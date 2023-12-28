@@ -7,7 +7,7 @@ import { IsNotLogIn } from "./IsNotLogIn";
 
 export const Navigation = () => {
 
-    const { user, logOutHandler } = useContext(UserContext);
+    const { user, userInfo, logOutHandler } = useContext(UserContext);
 
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -21,12 +21,25 @@ export const Navigation = () => {
 
 
 
+
                         {user ? <IsLogIn logOutHandler={logOutHandler} /> : <IsNotLogIn />}
 
                         {/* <li className="nav-item">
                             <a className="nav-link" href="#">Register</a>
                         </li> */}
 
+                        {userInfo &&
+                            <>
+                                <li className="nav-item">
+                                    <p className="nav-link" to="/catalog">Hello: {userInfo.full_name}</p>
+                                </li>
+                                <li className="nav-item">
+                                    <p className="nav-link" to="/catalog">Status: {userInfo.isadmin ? "ADMIN" : "REGULAR"}</p>
+                                </li>
+
+                            </>
+
+                        }
 
                     </ul>
                 </div>

@@ -9,6 +9,7 @@ import { UserProvider } from "./components/Context/userContext"
 import { Profile } from './components/Profile/Profile';
 import { RouteGuard } from './components/RouteGuard/RouteGuard';
 import { NotFound } from './components/NotFound/NotFound';
+import { Users } from './components/Users/Users';
 
 
 function App() {
@@ -45,6 +46,12 @@ function App() {
           <Route path='/catalog' element={
             <RouteGuard>
               <Catalog />
+            </RouteGuard>
+          } />
+
+          <Route path='/users' element={
+            <RouteGuard>
+              <Users />
             </RouteGuard>
           } />
 

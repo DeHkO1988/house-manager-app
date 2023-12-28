@@ -32,7 +32,7 @@ export const getUserInfo = async (token) => {
         }
     });
 
-    if(!userInfo.ok) {
+    if (!userInfo.ok) {
         throw ('invalid token');
     }
 
@@ -40,4 +40,19 @@ export const getUserInfo = async (token) => {
 
     return result;
 
+};
+
+export const getAllUsers = async (token) => {
+
+    const header = `Bearer ${token}`;
+
+    const users = await fetch(`http://ec2-3-121-234-38.eu-central-1.compute.amazonaws.com:8000/users`, {
+        headers: {
+            'Authorization': header,
+        }
+    });
+
+    const result = await users.json();
+
+    return result;
 }

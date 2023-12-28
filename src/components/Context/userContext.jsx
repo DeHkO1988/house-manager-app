@@ -11,6 +11,7 @@ export const UserProvider = ({
 }) => {
 
     const [user, setUser] = useState(null);
+    const [userInfo, setUserInfo] = useState(null);
     const [loginErr, setLoginErr] = useState({});
     const navigate = useNavigate();
 
@@ -21,6 +22,10 @@ export const UserProvider = ({
             const accessToken = await userService.logIn(user);
 
             setUser(accessToken);
+
+            const a = await userService.getUserInfo(accessToken);
+
+            await setUserInfo(a);
 
             navigate('/catalog');
 
@@ -46,6 +51,7 @@ export const UserProvider = ({
         logOutHandler,
         errorCleaner,
         user: user,
+        userInfo: userInfo,
         error: loginErr,
     }
 
