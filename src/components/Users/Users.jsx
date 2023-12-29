@@ -16,25 +16,43 @@ export const Users = () => {
 
     return (
         <>
-            {users.map(x => {
-                return (
-                    <ul class="list-group list-group-horizontal">
-                        <li class="list-group-item">{x.username}</li>
-                        <li class="list-group-item">{x.full_name}</li>
-                        <li class="list-group-item">{x.email}</li>
-                        <li class="list-group-item">Disable: {x.disable ? "TRUE" : "FALSE"}</li>
-                        <li class="list-group-item">Admin: {x.isadmin ? "TRUE" : "FALSE"}</li>
-                        <li class="list-group-item">
-                            <button type="button" class="btn btn-primary">Edit</button>
-                        </li>
-                        <li class="list-group-item">
-                            <button type="button" class="btn btn-primary">Delete</button>
-                        </li>
-                    </ul>
-                )
-            })}
+            <div className="container text-center">
 
-            <button type="button" class="btn btn-primary">ADD new User</button>
+                {users.map(x => {
+                    return (
+
+                        <div className="p-2" key={x.email}>
+
+                            <div className="card">
+                                <div className="card-body">
+                                    <h5 className="card-title">{x.full_name}</h5>
+                                    <p className="card-text"><b>Username:</b> {x.username}</p>
+                                    <p className="card-text"><b>Email:</b> {x.email}</p>
+                                    <p className="card-text"><b>Disable:</b> {x.disable ? "TRUE" : "FALSE"}</p>
+                                    <p className="card-text"><b>Admin:</b> {x.isadmin ? "TRUE" : "FALSE"}</p>
+
+                                    <div className="btn-group me-2">
+                                        <a href="#" className="btn btn-primary">Edit</a>
+                                    </div>
+                                    <div className="btn-group me-2">
+                                        <a href="#" className="btn btn-danger">Delete</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    )
+                })}
+
+                <div className="btn-toolbar">
+                    <div className="btn-group mx-auto">
+                        <a href="#" className="btn btn-primary">Add new user</a>
+                    </div>
+                </div>
+
+            </div>
         </>
     )
 }
