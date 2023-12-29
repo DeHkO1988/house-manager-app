@@ -39,6 +39,7 @@ export const UserProvider = ({
 
     const logOutHandler = () => {
         setUser(null);
+        setUserInfo(null)
         navigate('/');
     };
 
