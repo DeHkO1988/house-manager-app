@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 
 import * as userService from "../../services/userService";
 import { UserContext } from "../Context/userContext";
+import { Link } from "react-router-dom";
 
 
 export const Users = () => {
@@ -48,7 +49,7 @@ export const Users = () => {
 
                 <div className="btn-toolbar">
                     <div className="btn-group mx-auto">
-                        <a href="#" className="btn btn-primary">Add new user</a>
+                        <Link to="/users/create" className="btn btn-primary">Add new user</Link>
                     </div>
                 </div>
 
