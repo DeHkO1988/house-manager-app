@@ -7,8 +7,8 @@ export const CreateUser = () => {
         full_name: "",
         username: "",
         email: "",
-        disabled: "",
-        isadmin: "",
+        disabled: false,
+        isadmin: false,
     });
 
     const userInfoHandler = (e) => {
@@ -19,9 +19,7 @@ export const CreateUser = () => {
         e.preventDefault();
 
         console.log(userInfo);
-    }
-
-
+    };
 
     return (
         <div className={style.createUserContainer}>

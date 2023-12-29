@@ -55,4 +55,25 @@ export const getAllUsers = async (token) => {
     const result = await users.json();
 
     return result;
+};
+
+export const createUser = async (token, data) => {
+
+    const header = `Bearer ${token}`;
+
+    const newUser = await fetch(`http://ec2-3-121-234-38.eu-central-1.compute.amazonaws.com:8000/users/register`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': header,
+        },
+        body: JSON.stringify(data)
+    });
+
+    if(!newUser.ok) {
+        throw ("error")
+    };
+
+    alert("new user is created");
+
 }
