@@ -67,7 +67,7 @@ export const createUser = async (token, data) => {
             'Content-Type': 'application/json',
             'Authorization': header,
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
     });
 
     if(!newUser.ok) {

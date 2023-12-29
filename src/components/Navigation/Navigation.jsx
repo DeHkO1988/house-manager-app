@@ -28,7 +28,7 @@ export const Navigation = () => {
                             <a className="nav-link" href="#">Register</a>
                         </li> */}
 
-                        {userInfo &&
+                        {user &&
                             <>
                                 <li className="nav-item">
                                     <p className="nav-link" to="/catalog">Hello: {userInfo.full_name}</p>

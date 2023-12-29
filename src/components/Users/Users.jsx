@@ -29,7 +29,7 @@ export const Users = () => {
                                     <h5 className="card-title">{x.full_name}</h5>
                                     <p className="card-text"><b>Username:</b> {x.username}</p>
                                     <p className="card-text"><b>Email:</b> {x.email}</p>
-                                    <p className="card-text"><b>Disable:</b> {x.disable ? "TRUE" : "FALSE"}</p>
+                                    <p className="card-text"><b>Disable:</b> {x.disabled ? "TRUE" : "FALSE"}</p>
                                     <p className="card-text"><b>Admin:</b> {x.isadmin ? "TRUE" : "FALSE"}</p>
 
                                     <div className="btn-group me-2">
