@@ -32,7 +32,7 @@ export const UserProvider = ({
         } catch (error) {
 
             setLoginErr({err: error})
-            //alert(error);
+
         }
 
     };

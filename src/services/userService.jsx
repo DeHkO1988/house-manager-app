@@ -7,7 +7,6 @@ export const logIn = async (data) => {
     formData.append('username', data.username);
     formData.append('password', data.password);
 
-
     const token = await fetch(baseUrl, {
         method: 'POST',
         body: formData,
@@ -16,7 +15,7 @@ export const logIn = async (data) => {
     const result = await token.json()
 
     if (!token.ok) {
-        throw ('Incorrect username or password!');
+        throw ("Incorrect username or password");
     }
 
     return result.access_token;
@@ -70,10 +69,50 @@ export const createUser = async (token, data) => {
         body: JSON.stringify(data),
     });
 
-    if(!newUser.ok) {
+    if (!newUser.ok) {
         throw ("error")
     };
 
     alert("new user is created");
 
+};
+
+export const getOneUser = async (id, token) => {
+
+    const header = `Bearer ${token}`;
+
+    const userInfo = await fetch(`http://ec2-3-121-234-38.eu-central-1.compute.amazonaws.com:8000/users/${id}`, {
+        headers: {
+            'Authorization': header,
+        }
+    });
+
+    if(!userInfo.ok) {
+        throw("error get userInfo")
+    };
+
+    const result = await userInfo.json();
+
+    return result
+
+};
+
+export const editUser = async (token, data, id) => {
+
+    const header = `Bearer ${token}`;
+
+    const edit = await fetch(`http://ec2-3-121-234-38.eu-central-1.compute.amazonaws.com:8000/users/${id}`, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': header,
+        },
+        body: JSON.stringify(data),
+    });
+
+    if(!edit.ok) {
+        throw("edit don't work");
+    }
+
+    alert("edit was successful");
 }

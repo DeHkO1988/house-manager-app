@@ -8,14 +8,12 @@ import { Link } from "react-router-dom";
 export const Users = () => {
     const [users, setUsers] = useState([]);
 
-    const { user } = useContext(UserContext);
+    const { user, userInfo } = useContext(UserContext);
 
     useEffect(() => {
         userService.getAllUsers(user)
-            .then(result => setUsers(result.users));
+            .then(result => setUsers(result.users.filter(x => x._id != userInfo._id )));
     }, []);
-
-    console.log(users);
 
     return (
         <>
