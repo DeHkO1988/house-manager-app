@@ -15,6 +15,8 @@ export const Users = () => {
             .then(result => setUsers(result.users));
     }, []);
 
+    console.log(users);
+
     return (
         <>
             <div className="container text-center">
@@ -33,7 +35,7 @@ export const Users = () => {
                                     <p className="card-text"><b>Admin:</b> {x.isadmin ? "TRUE" : "FALSE"}</p>
 
                                     <div className="btn-group me-2">
-                                        <a href="#" className="btn btn-primary">Edit</a>
+                                        <Link to={`/user/${x._id}`} className="btn btn-primary">Edit</Link>
                                     </div>
                                     <div className="btn-group me-2">
                                         <a href="#" className="btn btn-danger">Delete</a>
